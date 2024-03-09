@@ -88,7 +88,7 @@
 //                        | GUI  |      | SPC      |   | ENT  |      | ALT  |
                         bindings = <
    &kp GRAVE  &kp F1      &kp F2            &kp F3     &kp F4     &kp F5       &kp F6    &kp F7   &kp F8   &kp F9 &kp F10   &kp BSPC
-   &kp LCTRL  &kp TILDE   &kp HASH          &kp NUBS   &trans     &bt trans  kp F12    &kp F4   &kp F5   &kp F6 &kp PLUS  &kp PIPE
+   &kp LCTRL  &kp TILDE   &kp HASH          &kp NUBS   &trans     &bt trans    &kp F12    &kp F4  &kp F5   &kp F6 &kp PLUS  &kp PIPE
    &kp LSHFT  &bl BL_TOG  &rgb_ug RGB_TOG   &bt BT_PRV &bt BT_CLR &bt BT_NXT   &kp F11   &kp F1   &kp F2   &kp F3 &kp EQUAL &trans
                                             &kp LGUI   &trans     &kp SPACE    &kp RET   &trans   &kp RALT
                         >;
