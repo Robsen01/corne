@@ -13,13 +13,15 @@
 #define DEFAULT 0
 #define NUMBERS 1
 #define CODING  2
-#define FUNC    3
+#define ARROWS  3
+#define FUNC    4
 
 &led_strip {
-    chain-length = <21>;
+    chain-length = <27>;
 };
 
 / {
+
         keymap {
                 compatible = "zmk,keymap";
 
@@ -30,21 +32,21 @@
 // | SHFT |  Y  |  X  |  C  |  V  |  B    |   |  N  |  M   |  ,  |  .  |  /  | ENT  |
 //                    | CTRL | LWR | BKSP |   | SPC |  FN  | ALT |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T                   &kp Z &kp U  &kp I     &kp O      &kp P     &kp BSPC
-   &kp ESC   &kp A &kp S &kp D &kp F &kp G                   &kp H &kp J  &kp K     &kp L      &kp SEMI  &kp SQT
-   &kp LSHFT &kp Y &kp X &kp C &kp V &kp B                   &kp N &kp M  &kp COMMA &kp DOT    &kp BSLH  &kp RET
-                   &kp LCTRL &lt FUNC RET &lt NUMBERS BSPC   &lt CODING SPACE &kp GLOBE &kp RALT
+   &kp TAB   &kp Q &kp W &kp E &kp R &kp T               &kp Z &kp U  &kp I     &kp O      &kp P     &kp BSPC
+   &kp ESC   &kp A &kp S &kp D &lt ARROWS F &kp G        &kp H &kp J  &kp K     &kp L      &kp SEMI  &kp SQT
+   &kp LSHFT &kp Y &kp X &kp C &kp V &kp B               &kp N &kp M  &kp COMMA &kp DOT    &kp SLASH  &mt LSHFT RET
+   &kp LCTRL &lt FUNC GLOBE &lt NUMBERS BSPC             &lt CODING SPACE &kp RET  &kp RALT
                         >;
                 };
                 lower_layer {
 // -----------------------------------------------------------------------------------------
 // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT |  4  |  5  |  6  |  +  |   =  |
+// | BTCLR| BT0 | BT1 | BT2 | BT3 | BT4 |   |     |  4  |  5  |  6  |  +  |   =  |
 // | SHFT |     |     |     |     |     |   |     |  1  |  2  |  3  |  -  |      |
 //                    | GUI |     | SPC |   | ENT |  .  |  0  |
                         bindings = <
    &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp N4   &kp N5 &kp N6    &kp PLUS &kp EQUAL
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &trans   &kp N4   &kp N5 &kp N6    &kp PLUS &kp EQUAL
    &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &kp N1   &kp N2 &kp N3    &kp MINUS &trans
                                         &kp LGUI     &trans       &kp SPACE      &kp RET  &kp DOT  &kp N0
                         >;
@@ -54,13 +56,27 @@
 // -----------------------------------------------------------------------------------------
 // |  '   |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
 // | CTRL |  ~  |  #  |  /  |  {  |  [  |   |  ]  |  }  |  \  |  -  |  +  |  "|" |
-// | SHFT |     |     |     |     |     |   |     |     |     |  _  |  =  |      |
+// | SHFT |     |     |     |     |  qm |   |     |     |     |  _  |  =  |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &kp GRAVE  &kp EXCL  &kp AT   &kp HASH   &kp DLLR  &kp PRCNT     &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp KP_LPAR   &kp KP_RPAR  &kp BSPC
    &kp LCTRL  &kp TILDE &kp HASH &kp SLASH  &kp LBRC  &kp LBKT      &kp RBKT  &kp RBRC  &kp NUBS        &kp KP_MINUS  &kp KP_PLUS  &kp PIPE
-   &kp LSHFT  &trans    &trans   &trans     &trans    &trans        &trans    &trans    &trans          &kp UNDER     &kp KP_EQUAL &trans
+   &kp LSHFT  &trans    &trans   &kp DQP     &kp EXCL    &kp QMARK        &trans    &trans    &trans          &kp UNDER     &kp KP_EQUAL &trans
                                  &kp LGUI   &trans    &kp SPACE     &kp RET   &trans    &kp RALT
+                        >;
+                };
+
+                arrow_layer {
+// -----------------------------------------------------------------------------------------
+// | |   |    |   |   |       |   |       | UP    |        |   |  |  |
+// | | |  | |      |          |   | LEFT  |  DOWN | RIGHT  |   |  |  |
+// | |||||                    |   |       |       |        |   |  |  |
+//                            |   |   |   |   |   |  |  |
+                        bindings = <
+   &trans &trans &trans &trans &trans &trans    &trans &trans   &kp UP   &trans    &trans &trans
+   &trans &trans &trans &trans &trans &trans    &trans &kp LEFT &kp DOWN &kp RIGHT &trans &trans
+   &trans &trans &trans &trans &trans &trans    &trans &trans   &trans   &trans    &trans &trans
+                        &trans &trans &trans    &trans &trans &trans    
                         >;
                 };
 
@@ -76,8 +92,8 @@
    &kp LSHFT  &bl BL_TOG  &rgb_ug RGB_TOG   &bt BT_PRV &bt BT_CLR &bt BT_NXT   &kp F11   &kp F1   &kp F2   &kp F3 &kp EQUAL &trans
                                             &kp LGUI   &trans     &kp SPACE    &kp RET   &trans   &kp RALT
                         >;
-                };
         };
 };
+}
 
 
