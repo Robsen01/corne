@@ -80,19 +80,7 @@
                         >;
                 };
 
-                fn_layer {
-// -----------------------------------------------------------------------------------------
-// |  '   |  F1   |  F2   |  F3  |  F4  |  F5      |   |  F6  |  F7  |  F8  |  F9  |  F10 | BKSP |
-// | CTRL |  ~    |  #    |  /   |      |          |   |  F12 |  F4  |  F5  |  F6  |  +   |  "|" |
-// | SHFT |blt tog|rgb tog|BT_PRV|BT_CLR|BT_NEXT   |   |  F11 |  F1  |  F2  |  F3  |  =   |      |
-//                        | GUI  |      | SPC      |   | ENT  |      | ALT  |
-                        bindings = <
-   &kp GRAVE  &kp F1      &kp F2            &kp F3     &kp F4     &kp F5       &kp F6    &kp F7   &kp F8   &kp F9 &kp F10   &kp BSPC
-   &kp LCTRL  &kp TILDE   &kp HASH          &kp NUBS   &trans     &bt trans    &kp F12   &kp F4   &kp F5   &kp F6 &kp KP_PLUS  &kp PIPE
-   &kp LSHFT  &bl BL_TOG  &rgb_ug RGB_TOG   &bt BT_PRV &bt BT_CLR &bt BT_NXT   &kp F11   &kp F1   &kp F2   &kp F3 &kp KP_EQUAL &trans
-                                            &kp LGUI   &trans     &kp SPACE    &kp RET   &trans   &kp RALT
-                        >;
-        };
+                
 };
 }
 
