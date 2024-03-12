@@ -35,7 +35,7 @@
    &kp TAB   &kp Q &kp W  &kp E &kp R        &kp T        &kp Z &kp U  &kp I     &kp O      &kp P     &kp BSPC
    &kp ESC   &kp A &kp S  &kp D &lt ARROWS F &kp G        &kp H &kp J  &kp K     &kp L      &kp SEMI  &kp SQT
    &kp LSHFT &kp Y &kp X  &kp C &kp V        &kp B        &kp N &kp M  &kp COMMA &kp DOT    &kp SLASH &kp LSHFT
-   &kp LCTRL &lt FUNC RET &lt NUMBERS BSPC             &lt CODING SPACE &kp RET  &kp RALT
+   &kp LCTRL &kp LGUI &lt NUMBERS BSPC             &lt CODING SPACE &lt FUNC RET  &kp LALT
                         >;
                 };
                 lower_layer {
@@ -48,7 +48,7 @@
    &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &trans   &kp N4   &kp N5 &kp N6    &kp PLUS &kp EQUAL
    &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &kp N1   &kp N2 &kp N3    &kp MINUS &trans
-                                        &kp LGUI     &trans       &kp SPACE      &kp RET  &kp DOT  &kp N0
+                                        &kp FN     &trans       &kp SPACE      &kp RET  &kp DOT  &kp N0
                         >;
                 };
 
@@ -69,12 +69,12 @@
                 arrow_layer {
 // -----------------------------------------------------------------------------------------
 // | |   |    |   |   |       |   |       | UP    |        |   |  |  |
-// | | |  | |      |          |   | LEFT  |  DOWN | RIGHT  |   |  |  |
+// | | |  | |      |          | Left  |  up |  DOWN | RIGHT  |   |  |  |
 // | |||||                    |   |       |       |        |   |  |  |
 //                            |   |   |   |   |   |  |  |
                         bindings = <
-   &trans &trans &trans &trans &trans &trans    &trans &trans   &kp UP   &trans    &trans &trans
-   &trans &trans &trans &trans &trans &trans    &trans &kp LEFT &kp DOWN &kp RIGHT &trans &trans
+   &trans &trans &trans &trans &trans &trans    &trans &trans   &trans   &trans    &trans &trans
+   &trans &trans &trans &trans &trans &trans    &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
    &trans &trans &trans &trans &trans &trans    &trans &trans   &trans   &trans    &trans &trans
                         &trans &trans &trans    &trans &trans &trans    
                         >;
