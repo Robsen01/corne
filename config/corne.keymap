@@ -60,7 +60,7 @@
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &kp GRAVE  &kp EXCL  &kp AT   &kp HASH   &kp DLLR  &kp PRCNT     &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR   &kp RPAR  &kp BSPC
-   &kp LCTRL  &kp TILDE &kp HASH &kp SLASH  &kp LBRC  &kp LBKT      &kp RBKT  &kp RBRC  &kp NUBS        &kp KP_MINUS  &kp KP_PLUS  &kp PIPE
+   &kp LCTRL  &kp TILDE &kp HASH &kp SLASH  &kp LBRC  &kp LBKT      &kp RBKT  &kp RBRC  &kp BSLH        &kp KP_MINUS  &kp KP_PLUS  &kp PIPE
    &kp LSHFT  &trans    &trans   &kp DQT     &kp EXCL    &kp LT     &kp GT    &kp QMARK &trans          &kp UNDER     &kp KP_EQUAL &trans
                                  &kp LGUI   &trans    &kp SPACE     &kp RET   &trans    &kp RALT
                         >;
