@@ -77,8 +77,8 @@
 // | |||||                    |   |       |       |        |   |  |  |
 //                            |   |   |   |   |   |  |  |
                         bindings = <
-   &trans &trans &trans &trans &trans &trans    &trans &kp RA(y) &kp UP &kp RA(p) &trans &trans
-   &trans &kp RA(q) &trans &trans &trans &trans    &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+   &trans &trans &trans &trans &trans &trans    &trans &kp RALT(Y) &kp UP &kp RALT(P) &trans &trans
+   &trans &kp RALT(Q) &trans &trans &trans &trans    &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
    &trans &trans &trans &trans &trans &trans    &trans &trans   &trans   &trans    &trans &trans
                         &trans &trans &trans    &trans &trans &trans    
                         >;
