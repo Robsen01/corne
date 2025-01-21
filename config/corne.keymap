@@ -9,6 +9,10 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/backlight.h>
+#include "zmk-helpers/helper.h"
+#include "zmk-helpers/unicode-chars/german.dtsi"
+
+#define HOST_OS 1
 
 #define DEFAULT 0
 #define NUMBERS 1
@@ -33,7 +37,7 @@
 //                    | CTRL | LWR | BKSP |   | SPC |  FN  | ALT |
                         bindings = <
    &kp TAB   &kp Q &kp W  &kp E &kp R        &kp T        &kp Z &kp U  &kp I     &kp O      &kp P     &kp BSPC
-   &kp ESC   &kp A &kp S  &kp D &lt ARROWS F &kp G        &kp H &kp J  &kp K     &kp L      &kp SEMI  &kp SQT
+   &kp ESC   &kp A &kp S  &kp D &lt ARROWS F &kp G        &kp H &kp J  &kp K     &kp L      &kp SEMI  &kp GRAVE
    &kp LSHFT &kp Y &kp X  &kp C &kp V        &kp B        &kp N &kp M  &kp COMMA &kp DOT    &kp SLASH &kp LSHFT
    &kp LCTRL &kp LGUI &lt NUMBERS BSPC             &lt CODING SPACE &lt FUNC RET  &kp LALT
                         >;
@@ -68,13 +72,13 @@
 
                 arrow_layer {
 // -----------------------------------------------------------------------------------------
-// | |   |    |   |   |       |   |       | UP    |        |   |  |  |
-// | | |  | |      |          | Left  |  up |  DOWN | RIGHT  |   |  |  |
+// | |   |    |   |   |       |   |   ü    | UP    |    ö    |   |  |  |
+// | | |  | |      |          | Left  |  Down |  Up | RIGHT  |   |  |  |
 // | |||||                    |   |       |       |        |   |  |  |
 //                            |   |   |   |   |   |  |  |
                         bindings = <
-   &trans &trans &trans &trans &trans &trans    &trans &trans   &trans   &trans    &trans &trans
-   &trans &trans &trans &trans &trans &trans    &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+   &trans &trans &trans &trans &trans &trans    &trans &kp Ü   &kp UP   &kp Ö &trans &trans
+   &trans &kp Ä &trans &trans &trans &trans    &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
    &trans &trans &trans &trans &trans &trans    &trans &trans   &trans   &trans    &trans &trans
                         &trans &trans &trans    &trans &trans &trans    
                         >;
