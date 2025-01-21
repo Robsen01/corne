@@ -77,8 +77,8 @@
 // | |||||                    |   |       |       |        |   |  |  |
 //                            |   |   |   |   |   |  |  |
                         bindings = <
-   &trans &trans &trans &trans &trans &trans    &trans &kp Ü   &kp UP   &kp Ö &trans &trans
-   &trans &kp Ä &trans &trans &trans &trans    &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+   &trans &trans &trans &trans &trans &trans    &trans &kp DE_LOWER_U_UMLAUT   &kp UP   &kp DE_LOWER_O_UMLAUT &trans &trans
+   &trans &kp DE_LOWER_A_UMLAUT &trans &trans &trans &trans    &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
    &trans &trans &trans &trans &trans &trans    &trans &trans   &trans   &trans    &trans &trans
                         &trans &trans &trans    &trans &trans &trans    
                         >;
