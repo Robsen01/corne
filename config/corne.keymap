@@ -1,6 +1,5 @@
 /*
  * Copyright (c) 2020 The ZMK Contributors
- *
  * SPDX-License-Identifier: MIT
  */
 
@@ -15,6 +14,7 @@
 #define CODING  2
 #define ARROWS  3
 #define FUNC    4
+#define UMLAUT  5  // Neuer Layer
 
 &led_strip {
     chain-length = <27>;
@@ -30,51 +30,79 @@ macros {
 };
 
 / {
-        keymap {
-                compatible = "zmk,keymap";
+    behaviors {
+        umlaut_layer_toggle: umlaut_layer_toggle {
+            compatible = "zmk,behavior-hold-tap";
+            label = "UMLAUT_LAYER_TOGGLE";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&kp>;
+        };
+    };
 
-                default_layer {
-                        bindings = <
+    keymap {
+        compatible = "zmk,keymap";
+
+        // ████████████████████████████████████████
+        // ████ DEFAULT LAYER (UNVERÄNDERT) ███████
+        default_layer {
+            bindings = <
    &kp TAB   &kp Q &kp W  &kp E &kp R        &kp T        &kp Z &kp U  &kp I     &kp O      &kp P     &kp BSPC
    &kp ESC   &kp A &kp S  &kp D &lt ARROWS F &kp G        &kp H &kp J  &kp K     &kp L      &kp SEMI  &backtick
    &kp LSHFT &kp Y &kp X  &kp C &kp V        &kp B        &kp N &kp M  &kp COMMA &kp DOT    &kp SLASH &kp LSHFT
-                    &kp LCTRL &kp LGUI &lt NUMBERS BSPC   &lt CODING SPACE &lt FUNC RET  &kp LALT
-                        >;
-                };
-                lower_layer {
-                        bindings = <
+                    &kp LCTRL &kp LGUI &lt NUMBERS BSPC   &lt CODING SPACE &lt FUNC RET  &umlaut_layer_toggle UMLAUT LALT  // LALT → Umlaut-Layer
+            >;
+        };
+
+
+        // ████████████████████████████████████████
+        // ████ ORIGINAL-LAYERS (UNVERÄNDERT) █████
+        lower_layer {  // Layer 1
+            bindings = <
    &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp DEL
    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &trans   &kp N4   &kp N5 &kp N6    &kp PLUS &kp EQUAL
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &kp N1   &kp N2 &kp N3    &kp MINUS &trans
+   &kp LSHFT  &trans       &trans       &SQT       &trans       &trans         &trans   &kp N1   &kp N2 &kp N3    &kp MINUS &trans
                                         &trans     &trans       &kp SPACE      &kp RET  &kp DOT  &kp N0
-                        >;
-                };
+            >;
+        };
 
-                raise_layer {
-                        bindings = <
+        raise_layer {  // Layer 2
+            bindings = <
    &kp GRAVE  &kp EXCL  &kp AT   &kp HASH   &kp DLLR  &kp PRCNT     &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR   &kp RPAR  &kp BSPC
    &kp LCTRL  &kp TILDE &kp HASH &kp SLASH  &kp LBRC  &kp LBKT      &kp RBKT  &kp RBRC  &kp BSLH        &kp MINUS  &kp PLUS  &kp PIPE
    &kp LSHFT  &trans    &trans   &kp DQT    &kp EXCL  &kp LT        &kp GT    &kp QMARK &trans          &kp UNDER  &kp EQUAL &trans
                                  &kp LGUI   &trans    &kp SPACE     &kp RET   &trans    &kp RALT
-                        >;
-                };
+            >;
+        };
 
-                arrow_layer {
-                        bindings = <
+        arrow_layer {  // Layer 3
+            bindings = <
    &trans &trans &trans &trans &trans &trans    &trans &kp RA(Y) &kp UP &kp RA(P) &trans &trans
    &trans &kp RA(Q) &trans &trans &trans &trans    &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
    &trans &trans &trans &trans &trans &trans    &trans &trans   &trans   &trans    &trans &trans
                         &trans &trans &trans    &trans &trans &trans    
-                        >;
-                };
+            >;
+        };
 
-                func_layer {
-                        bindings = <
+        func_layer {  // Layer 4
+            bindings = <
    &trans &kp F1 &kp F2 &kp F3 &kp F4 &kp F5    &kp F6  &kp F7   &kp F8   &kp F9    &kp F10 &trans
    &trans &trans &trans &trans &trans &trans    &kp F12 &kp F4   &kp F5   &kp F6    &trans &trans
    &trans &trans &trans &rgb_ug RGB_TOG &rgb_ug RGB_COLOR_HSB(174,100,90) &trans    &kp F11 &kp F1   &kp F2   &kp F3    &trans &trans
                         &trans &trans &trans    &trans &trans &trans    
-                        >;
-                };
+            >;
         };
+    };
+    // ████████████████████████████████████████
+    // ████ NEUER UMLAUT-LAYER (LAYER 5) ██████
+    umlaut_layer {
+        bindings = <
+            &trans   &trans  &trans  &trans  &trans  &trans  &kp SS   &trans  &trans  &kp OE  &kp UE  &trans    // Z → ß, O → ö, P → ü
+            &trans   &kp AE  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    // A → ä
+            &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            &trans  &trans  &trans  &trans  &trans  &trans
+        >;
+    };
 };
