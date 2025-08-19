@@ -22,10 +22,7 @@
 #define UMLAUTE 5
 
 led_strip {
-    compatible = "zmk,led-strip";
-    label = "LED_STRIP";
-    chain-length = <27>;
-    data-gpios = <&gpioX Y GPIO_ACTIVE_HIGH>;
+    chain-length = <54>;
 };
 
 / {
